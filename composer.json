@@ -12,7 +12,9 @@
     "require": {
         "php-di/php-di": "dev-master",
         "guzzlehttp/psr7": "^2.0@dev",
-        "hulotte/middleware-dispatcher": "dev-master"
+        "hulotte/middleware-dispatcher": "dev-master",
+        "hulotte/routing": "dev-master",
+        "hulotte/renderer": "dev-master"
     },
     "require-dev": {
         "phpunit/phpunit": "^9.1@dev",
