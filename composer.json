@@ -8,7 +8,6 @@
             "email": "s.clement@la-taniere.net"
         }
     ],
-    "minimum-stability": "dev",
     "require": {
         "php-di/php-di": "^6.1.0",
         "guzzlehttp/psr7": "^2.0",
