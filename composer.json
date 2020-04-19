@@ -21,6 +21,7 @@
         "hulotte/routing": "^0.2.3@dev",
         "hulotte/renderer": "^0.1.0@dev",
         "phpunit/phpunit": "^9.1@dev",
-        "squizlabs/php_codesniffer": "^3.0@dev"
+        "squizlabs/php_codesniffer": "^3.0@dev",
+        "middlewares/whoops": "dev-master"
     }
 }
