@@ -1,14 +1,19 @@
 {
-    "name": "hulotte/framework",
-    "description": "Simple framework for simple project",
-    "license": "MIT",
     "authors": [
         {
             "name": "Sebastien CLEMENT",
             "email": "s.clement@la-taniere.net"
         }
     ],
+    "autoload": {
+        "psr-4": {
+            "Hulotte\\": "Hulotte"
+        }
+    },
+    "description": "Simple framework for simple project",
+    "license": "MIT",
     "minimum-stability": "dev",
+    "name": "hulotte/framework",
     "require": {
         "php-di/php-di": "^6.1.0@dev",
         "guzzlehttp/psr7": "^2.0@dev",
