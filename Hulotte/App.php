@@ -46,7 +46,7 @@ class App
     {
         if ($this->container === null) {
             $builder = new ContainerBuilder();
-            $builder->addDefinitions(__DIR__, '/config.php');
+            $builder->addDefinitions(__DIR__ . '/config.php');
 
             foreach ($this->modules as $module) {
                 if ($module::DEFINITIONS) {
