@@ -10,7 +10,17 @@ namespace Hulotte;
 class Module
 {
     /**
-     * @var string
+     * @var string|null
      */
     const DEFINITIONS = null;
+
+    /**
+     * @var string|null
+     */
+    const MIGRATIONS = null;
+
+    /**
+     * @var string|null
+     */
+    const SEEDS = null;
 }
