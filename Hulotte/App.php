@@ -3,6 +3,7 @@
 namespace Hulotte;
 
 use DI\ContainerBuilder;
+use Exception;
 use Hulotte\Middlewares\MiddlewareDispatcher;
 use Psr\{
     Container\ContainerInterface,
@@ -40,7 +41,7 @@ class App
 
     /**
      * @return ContainerInterface
-     * @throws \Exception
+     * @throws Exception
      */
     public function getContainer(): ContainerInterface
     {
@@ -71,7 +72,7 @@ class App
     /**
      * @param ServerRequestInterface $request
      * @return ResponseInterface
-     * @throws \Exception
+     * @throws Exception
      */
     public function run(ServerRequestInterface $request): ResponseInterface
     {
