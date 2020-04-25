@@ -42,7 +42,8 @@ class RouterExtension extends AbstractExtension
      * @param array|null $params
      * @return mixed
      */
-    public function pathFor(string $path, ?array $params = null){
+    public function pathFor(string $path, ?array $params = null)
+    {
         return $this->router->generateUri($path, $params);
     }
 }

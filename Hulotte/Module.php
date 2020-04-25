@@ -2,7 +2,6 @@
 
 namespace Hulotte;
 
-
 /**
  * Class Module
  * @author Sébastien CLEMENT<s.clement@la-taniere.net>
