@@ -17,11 +17,12 @@
     "require": {
         "php-di/php-di": "^6.1.0@dev",
         "guzzlehttp/psr7": "^2.0@dev",
-        "hulotte/middleware-dispatcher": "^0.2.0@dev",
-        "hulotte/routing": "^0.2.4@dev",
-        "hulotte/renderer": "^0.1.0@dev",
+        "hulotte/middleware-dispatcher": "dev-master",
+        "hulotte/routing": "dev-master",
+        "hulotte/renderer": "dev-master",
         "phpunit/phpunit": "^9.1@dev",
         "squizlabs/php_codesniffer": "^3.0@dev",
-        "middlewares/whoops": "dev-master"
+        "middlewares/whoops": "dev-master",
+        "hulotte/database": "dev-master"
     }
 }
