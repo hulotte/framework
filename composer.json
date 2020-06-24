@@ -16,7 +16,7 @@
     "name": "hulotte/framework",
     "require": {
         "php-di/php-di": "^6.1.0@dev",
-        "guzzlehttp/psr7": "^2.0@dev",
+        "guzzlehttp/psr7": "dev-master",
         "hulotte/middleware-dispatcher": "dev-master",
         "hulotte/routing": "dev-master",
         "hulotte/renderer": "dev-master",
