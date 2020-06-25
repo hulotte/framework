@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "8640d91e4c9a7fc23f2c012e7208f996",
+    "content-hash": "80b1d3f6e08b2f0c5609aa9034473a3f",
     "packages": [
         {
             "name": "cakephp/collection",
@@ -1533,16 +1533,16 @@
         },
         {
             "name": "symfony/console",
-            "version": "dev-master",
+            "version": "v5.1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/console.git",
-                "reference": "04531849253d4a989bc580a6d17a67538a9b39cf"
+                "reference": "34ac555a3627e324b660e318daa07572e1140123"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/console/zipball/04531849253d4a989bc580a6d17a67538a9b39cf",
-                "reference": "04531849253d4a989bc580a6d17a67538a9b39cf",
+                "url": "https://api.github.com/repos/symfony/console/zipball/34ac555a3627e324b660e318daa07572e1140123",
+                "reference": "34ac555a3627e324b660e318daa07572e1140123",
                 "shasum": ""
             },
             "require": {
@@ -1581,7 +1581,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "5.2-dev"
+                    "dev-master": "5.1-dev"
                 }
             },
             "autoload": {
@@ -1608,12 +1608,6 @@
             ],
             "description": "Symfony Console Component",
             "homepage": "https://symfony.com",
-            "keywords": [
-                "cli",
-                "command line",
-                "console",
-                "terminal"
-            ],
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -1628,7 +1622,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2020-06-24T13:36:31+00:00"
+            "time": "2020-06-15T12:59:21+00:00"
         },
         {
             "name": "symfony/deprecation-contracts",
