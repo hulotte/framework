@@ -2,6 +2,7 @@
 
 namespace Hulotte\TwigExtensions;
 
+use Exception;
 use Hulotte\Routing\RouteDispatcher;
 use Twig\Extension\AbstractExtension;
 use Twig\TwigFunction;
@@ -16,7 +17,7 @@ class RouterExtension extends AbstractExtension
     /**
      * @var RouteDispatcher
      */
-    private $router;
+    private RouteDispatcher $router;
 
     /**
      * RouterExtension constructor.
@@ -41,6 +42,7 @@ class RouterExtension extends AbstractExtension
      * @param string $path
      * @param array|null $params
      * @return mixed
+     * @throws Exception
      */
     public function pathFor(string $path, ?array $params = null)
     {
