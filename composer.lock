@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "9a4806551974a50bd4d0b634cf7e975a",
+    "content-hash": "8640d91e4c9a7fc23f2c012e7208f996",
     "packages": [
         {
             "name": "cakephp/collection",
@@ -316,37 +316,40 @@
         },
         {
             "name": "guzzlehttp/psr7",
-            "version": "1.6.1",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/psr7.git",
-                "reference": "239400de7a173fe9901b9ac7c06497751f00727a"
+                "reference": "ad1de77a65b751d598ced37747bf4c17d457fbc9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/psr7/zipball/239400de7a173fe9901b9ac7c06497751f00727a",
-                "reference": "239400de7a173fe9901b9ac7c06497751f00727a",
+                "url": "https://api.github.com/repos/guzzle/psr7/zipball/ad1de77a65b751d598ced37747bf4c17d457fbc9",
+                "reference": "ad1de77a65b751d598ced37747bf4c17d457fbc9",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.4.0",
+                "php": "^7.2",
+                "psr/http-factory": "^1.0",
                 "psr/http-message": "~1.0",
                 "ralouphie/getallheaders": "^2.0.5 || ^3.0.0"
             },
             "provide": {
+                "psr/http-factory-implementation": "1.0",
                 "psr/http-message-implementation": "1.0"
             },
             "require-dev": {
-                "ext-zlib": "*",
-                "phpunit/phpunit": "~4.8.36 || ^5.7.27 || ^6.5.8"
+                "ergebnis/composer-normalize": "^2.0",
+                "http-interop/http-factory-tests": "dev-master",
+                "phpunit/phpunit": "^8.5"
             },
             "suggest": {
-                "zendframework/zend-httphandlerrunner": "Emit PSR-7 responses"
+                "laminas/laminas-httphandlerrunner": "Emit PSR-7 responses"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.6-dev"
+                    "dev-master": "2.0-dev"
                 }
             },
             "autoload": {
@@ -370,6 +373,11 @@
                 {
                     "name": "Tobias Schultze",
                     "homepage": "https://github.com/Tobion"
+                },
+                {
+                    "name": "Márk Sági-Kazár",
+                    "email": "mark.sagikazar@gmail.com",
+                    "homepage": "https://sagikazarmark.hu"
                 }
             ],
             "description": "PSR-7 message implementation that also provides common utility methods",
@@ -383,7 +391,7 @@
                 "uri",
                 "url"
             ],
-            "time": "2019-07-01T23:21:34+00:00"
+            "time": "2020-05-19T19:51:52+00:00"
         },
         {
             "name": "http-interop/response-sender",
@@ -432,12 +440,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/hulotte/database.git",
-                "reference": "c3b300bf393c7819731faa3336b05151cd9398a2"
+                "reference": "96c7e65440166986695a69596d55b2e85558227f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/hulotte/database/zipball/c3b300bf393c7819731faa3336b05151cd9398a2",
-                "reference": "c3b300bf393c7819731faa3336b05151cd9398a2",
+                "url": "https://api.github.com/repos/hulotte/database/zipball/96c7e65440166986695a69596d55b2e85558227f",
+                "reference": "96c7e65440166986695a69596d55b2e85558227f",
                 "shasum": ""
             },
             "require": {
@@ -466,7 +474,7 @@
                 }
             ],
             "description": "Hulotte's bundle for managing database",
-            "time": "2020-06-24T08:50:33+00:00"
+            "time": "2020-06-25T07:38:13+00:00"
         },
         {
             "name": "hulotte/middleware-dispatcher",
@@ -474,16 +482,16 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/hulotte/middleware-dispatcher.git",
-                "reference": "0aaef3b697acf667eedf4053cebb6b037adf220b"
+                "reference": "fd4d137c506dff5d52a3601d1e21dd731b8118a5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/hulotte/middleware-dispatcher/zipball/0aaef3b697acf667eedf4053cebb6b037adf220b",
-                "reference": "0aaef3b697acf667eedf4053cebb6b037adf220b",
+                "url": "https://api.github.com/repos/hulotte/middleware-dispatcher/zipball/fd4d137c506dff5d52a3601d1e21dd731b8118a5",
+                "reference": "fd4d137c506dff5d52a3601d1e21dd731b8118a5",
                 "shasum": ""
             },
             "require": {
-                "guzzlehttp/psr7": "1.6.1",
+                "guzzlehttp/psr7": "dev-master",
                 "http-interop/response-sender": "1.0.0",
                 "php": "7.4.0",
                 "psr/http-message": "1.0.1",
@@ -510,7 +518,7 @@
                 }
             ],
             "description": "A PSR-15 middleware dispatcher",
-            "time": "2020-06-24T08:59:26+00:00"
+            "time": "2020-06-25T08:51:32+00:00"
         },
         {
             "name": "hulotte/renderer",
@@ -518,12 +526,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/hulotte/renderer.git",
-                "reference": "3b0aecc55d2d0065c455c63cd577c3bbd583200e"
+                "reference": "83b60f22d221f21c1a86dc3ee437496bceca79b5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/hulotte/renderer/zipball/3b0aecc55d2d0065c455c63cd577c3bbd583200e",
-                "reference": "3b0aecc55d2d0065c455c63cd577c3bbd583200e",
+                "url": "https://api.github.com/repos/hulotte/renderer/zipball/83b60f22d221f21c1a86dc3ee437496bceca79b5",
+                "reference": "83b60f22d221f21c1a86dc3ee437496bceca79b5",
                 "shasum": ""
             },
             "require": {
@@ -551,7 +559,7 @@
                 }
             ],
             "description": "Manage your template",
-            "time": "2020-06-24T09:05:34+00:00"
+            "time": "2020-06-25T07:41:46+00:00"
         },
         {
             "name": "hulotte/routing",
@@ -559,16 +567,16 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/hulotte/routing.git",
-                "reference": "6bc4115a6a5098d6910988f95f5dfea1dae6b799"
+                "reference": "25dd7dc0cff8b2621a81826e378bfcbeefc1e98d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/hulotte/routing/zipball/6bc4115a6a5098d6910988f95f5dfea1dae6b799",
-                "reference": "6bc4115a6a5098d6910988f95f5dfea1dae6b799",
+                "url": "https://api.github.com/repos/hulotte/routing/zipball/25dd7dc0cff8b2621a81826e378bfcbeefc1e98d",
+                "reference": "25dd7dc0cff8b2621a81826e378bfcbeefc1e98d",
                 "shasum": ""
             },
             "require": {
-                "guzzlehttp/psr7": "1.6.1",
+                "guzzlehttp/psr7": "dev-master",
                 "php": "7.4.0",
                 "psr/http-server-handler": "1.0.1",
                 "psr/http-server-middleware": "1.0.1"
@@ -594,7 +602,7 @@
                 }
             ],
             "description": "Simple routing system",
-            "time": "2020-06-24T08:24:31+00:00"
+            "time": "2020-06-25T08:48:37+00:00"
         },
         {
             "name": "jeremeamia/superclosure",
@@ -1529,12 +1537,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/console.git",
-                "reference": "27737091e88420e97cb7efdaf505820c709c3bbc"
+                "reference": "04531849253d4a989bc580a6d17a67538a9b39cf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/console/zipball/27737091e88420e97cb7efdaf505820c709c3bbc",
-                "reference": "27737091e88420e97cb7efdaf505820c709c3bbc",
+                "url": "https://api.github.com/repos/symfony/console/zipball/04531849253d4a989bc580a6d17a67538a9b39cf",
+                "reference": "04531849253d4a989bc580a6d17a67538a9b39cf",
                 "shasum": ""
             },
             "require": {
@@ -1620,7 +1628,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2020-06-16T21:43:05+00:00"
+            "time": "2020-06-24T13:36:31+00:00"
         },
         {
             "name": "symfony/deprecation-contracts",
@@ -3319,12 +3327,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/php-token-stream.git",
-                "reference": "005750b0305e06b56e1ed940b778650cecf131c5"
+                "reference": "069b89bd25b5437410e6f57a2f7fc46108a0029d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/php-token-stream/zipball/005750b0305e06b56e1ed940b778650cecf131c5",
-                "reference": "005750b0305e06b56e1ed940b778650cecf131c5",
+                "url": "https://api.github.com/repos/sebastianbergmann/php-token-stream/zipball/069b89bd25b5437410e6f57a2f7fc46108a0029d",
+                "reference": "069b89bd25b5437410e6f57a2f7fc46108a0029d",
                 "shasum": ""
             },
             "require": {
@@ -3366,7 +3374,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2020-06-24T04:56:58+00:00"
+            "time": "2020-06-24T13:03:10+00:00"
         },
         {
             "name": "phpunit/phpunit",
