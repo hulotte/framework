@@ -1,6 +1,7 @@
 <?php
 
 use Hulotte\{
+    Commands\InitCommand,
     Middlewares\RoutingMiddleware,
     Renderer\RendererInterface,
     Renderer\Twig\TwigRendererFactory,
@@ -18,6 +19,9 @@ return [
     RoutingMiddleware::class => function (ContainerInterface $container) {
         return new RoutingMiddleware($container->get(RouteDispatcher::class));
     },
+    'commands' => [
+        InitCommand::class,
+    ],
     'middlewares' => [
         new Whoops(),
         get(RoutingMiddleware::class),
