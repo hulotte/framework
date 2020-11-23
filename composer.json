@@ -15,8 +15,7 @@
     "minimum-stability": "dev",
     "name": "hulotte/framework",
     "require": {
-        "php": "7.4.0",
-        "php-di/php-di": "6.1.0",
+        "php": "^7.4.0",
         "hulotte/middleware-dispatcher": "dev-master",
         "hulotte/routing": "dev-master",
         "hulotte/renderer": "dev-master",
