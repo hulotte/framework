@@ -1,2 +1,7 @@
 .idea
-/vendor/
+vendor/
+
+#Exclusion des dossiers de travail
+.htaccess
+public/
+src/

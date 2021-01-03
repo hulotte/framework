@@ -19,22 +19,12 @@ use Psr\{
 class App
 {
     /**
-     * @var ContainerInterface|null
-     */
-    private ?ContainerInterface $container;
-
-    /**
-     * @var string[]
-     */
-    private array $modules;
-
-    /**
      * App constructor
+     * @param null|ContainerInterface $container
+     * @param string[] $module
      */
-    public function __construct()
+    public function __construct(private ?containerInterface $container = null, private array $module = [])
     {
-        $this->container = null;
-        $this->modules = [];
     }
 
     /**

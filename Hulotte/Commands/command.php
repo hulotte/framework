@@ -1,4 +1,3 @@
-#!/usr/bin/env php
 <?php
 
 // Define autoload path (project or testing)
