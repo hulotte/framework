@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "992ed09af0a59c0a1c99a915e010a6af",
+    "content-hash": "9d5473b1ee882a37258bc566a58fa830",
     "packages": [
         {
             "name": "cakephp/core",
@@ -558,16 +558,16 @@
         },
         {
             "name": "hulotte/routing",
-            "version": "1.0.0",
+            "version": "1.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/hulotte/routing.git",
-                "reference": "a8fae9c1333e1755c2001e171b9828b0e0203690"
+                "reference": "b20f690cca31f2e1b7bd2e80b89c0599f0dc2c20"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/hulotte/routing/zipball/a8fae9c1333e1755c2001e171b9828b0e0203690",
-                "reference": "a8fae9c1333e1755c2001e171b9828b0e0203690",
+                "url": "https://api.github.com/repos/hulotte/routing/zipball/b20f690cca31f2e1b7bd2e80b89c0599f0dc2c20",
+                "reference": "b20f690cca31f2e1b7bd2e80b89c0599f0dc2c20",
                 "shasum": ""
             },
             "require": {
@@ -599,9 +599,9 @@
             "description": "Simple routing system",
             "support": {
                 "issues": "https://github.com/hulotte/routing/issues",
-                "source": "https://github.com/hulotte/routing/tree/1.0.0"
+                "source": "https://github.com/hulotte/routing/tree/1.0.1"
             },
-            "time": "2020-12-25T14:45:46+00:00"
+            "time": "2021-01-04T14:17:42+00:00"
         },
         {
             "name": "middlewares/utils",
@@ -3370,12 +3370,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "c6b5c17eb3a82946cef5eca323318df653a668ca"
+                "reference": "943003a5b2bd1292eb5f202c41be34770284d214"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/c6b5c17eb3a82946cef5eca323318df653a668ca",
-                "reference": "c6b5c17eb3a82946cef5eca323318df653a668ca",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/943003a5b2bd1292eb5f202c41be34770284d214",
+                "reference": "943003a5b2bd1292eb5f202c41be34770284d214",
                 "shasum": ""
             },
             "require": {
@@ -3465,7 +3465,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2021-01-02T06:22:59+00:00"
+            "time": "2021-01-03T07:41:06+00:00"
         },
         {
             "name": "sebastian/cli-parser",
@@ -4609,7 +4609,9 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": [],
+    "stability-flags": {
+        "psr/http-factory": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {

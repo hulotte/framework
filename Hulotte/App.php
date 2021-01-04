@@ -21,10 +21,14 @@ class App
     /**
      * App constructor
      * @param null|ContainerInterface $container
-     * @param string[] $module
+     * @param string[] $modules
+     * @param string[] $middlewares
      */
-    public function __construct(private ?containerInterface $container = null, private array $module = [])
-    {
+    public function __construct(
+        private ?containerInterface $container = null,
+        private array $modules = [],
+        private array $middlewares = []
+    ) {
     }
 
     /**
@@ -79,17 +83,24 @@ class App
             $this->getContainer()->get($module);
         }
 
-        $middlewares = $this->getContainer()->get('middlewares');
         $middlewaresInstanciate = [];
 
-        if (!empty($middlewares)) {
-            foreach ($middlewares as $middleware) {
-                $middlewaresInstanciate[] = $middleware;
+        if (!empty($this->middlewares)) {
+            foreach ($this->middlewares as $middleware) {
+                $middlewaresInstanciate[] = $this->container->get($middleware);
             }
         }
 
         $dispatcher = new MiddlewareDispatcher($middlewaresInstanciate);
 
         return $dispatcher->handle($request);
+    }
+
+    /**
+     * @param string[] $middlewares
+     */
+    public function setMiddlewares(array $middlewares)
+    {
+        $this->middlewares = $middlewares;
     }
 }

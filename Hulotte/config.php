@@ -2,13 +2,12 @@
 
 use Hulotte\{
     Commands\InitCommand,
+    Commands\ModuleCommand,
     Middlewares\RoutingMiddleware,
     Renderer\RendererInterface,
     Renderer\Twig\TwigRendererFactory,
     Routing\RouteDispatcher,
-    TwigExtensions\RouterExtension
-};
-use Middlewares\Whoops;
+    TwigExtensions\RouterExtension};
 use Psr\Container\ContainerInterface;
 use function DI\get;
 
@@ -21,10 +20,7 @@ return [
     },
     'commands' => [
         InitCommand::class,
-    ],
-    'middlewares' => [
-        new Whoops(),
-        get(RoutingMiddleware::class),
+        ModuleCommand::class
     ],
     'twig.extensions' => [
         get(RouterExtension::class),
