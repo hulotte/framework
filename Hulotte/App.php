@@ -32,14 +32,11 @@ class App
     }
 
     /**
-     * @param string $module
-     * @return $this
+     * @param array $module
      */
-    public function addModule(string $module): self
+    public function addModules(array $module): void
     {
-        $this->modules[] = $module;
-
-        return $this;
+        $this->modules = $module;
     }
 
     /**

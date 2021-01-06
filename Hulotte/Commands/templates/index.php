@@ -15,7 +15,9 @@ chdir(dirname(__DIR__));
 require 'vendor/autoload.php';
 
 $app = new App();
-$app->addModule(AppModule::class);
+$app->addModules([
+    AppModule::class,
+]);
 $app->setMiddlewares([
     RoutingMiddleware::class,
 ]);
