@@ -17,10 +17,11 @@
     "name": "hulotte/framework",
     "require": {
         "php": "^8.0",
+        "ext-pdo": "*",
         "hulotte/middleware-dispatcher": "^1.0.0",
         "hulotte/routing": "^1.0.1",
         "hulotte/renderer": "^1.0.0",
-        "hulotte/database": "^1.0.0",
+        "hulotte/database": "^1.0.1",
         "php-di/php-di": "^6.3.0",
         "middlewares/whoops": "^2.0.1",
         "symfony/console": "^5.2.1"

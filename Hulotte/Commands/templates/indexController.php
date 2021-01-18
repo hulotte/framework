@@ -1,10 +1,12 @@
 <?php
+
 return <<< 'EOD'
 <?php
 
 namespace %MODULE_NAME%\Controllers;
 
 use Hulotte\Renderer\RendererInterface;
+use Psr\Http\Message\ServerRequestInterface;
 
 /**
  * Class IndexController
@@ -16,7 +18,7 @@ class IndexController
     {
     }
 
-    public function __invoke(): string
+    public function __invoke(ServerRequestInterface $request): string
     {
         return $this->renderer->render('@%RENDER_PATH%/index');
     }

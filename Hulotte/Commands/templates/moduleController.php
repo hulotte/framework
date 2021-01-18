@@ -27,4 +27,5 @@ class %MODULE_NAME%Module extends Module
         $router->addRoute('/', 'accueil', $container->get(IndexController::class));
     }
 }
+
 EOD;
