@@ -22,14 +22,16 @@ class AppTest extends TestCase
     private App $app;
 
     /**
-     * @covers \Hulotte\App::addModule
+     * @covers \Hulotte\App::addModules
      * @test
      */
-    public function addModule(): void
+    public function addModules(): void
     {
         $this->app
-            ->addModule('namespace\moduleTest')
-            ->addModule('namespace\secondModule');
+            ->addModules([
+                'namespace\moduleTest',
+                'namespace\secondModule',
+            ]);
         $modules = $this->app->getModules();
 
         $this->assertSame('namespace\moduleTest', $modules[0]);
