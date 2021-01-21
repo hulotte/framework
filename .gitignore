@@ -1,8 +1,3 @@
 .idea
 .phpunit.result.cache
 vendor/
-
-#Exclusion des dossiers de travail
-.htaccess
-public/
-src/
