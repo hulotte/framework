@@ -23,52 +23,26 @@ class InitCommandTest extends TestCase
     private string $output;
 
     /**
+     * @var int
+     */
+    private int $result;
+
+    /**
      * @covers \Hulotte\Commands\InitCommand::execute
      * @test
      */
     public function execute(): void
     {
-        $this->assertStringContainsString('Your project is initialized.', $this->output);
-    }
-
-    /**
-     * @covers \Hulotte\Commands\InitCommand::execute
-     * @test
-     */
-    public function executeHtaccessFile(): void
-    {
+        $this->assertSame(0, $this->result);
         $this->assertFileExists('.htaccess');
         $this->assertStringContainsString('.htaccess file is created.', $this->output);
-    }
-
-    /**
-     * @covers \Hulotte\Commands\InitCommand::execute
-     * @test
-     */
-    public function executePublicFolder(): void
-    {
         $this->assertDirectoryExists('public');
         $this->assertStringContainsString('The folder "public" is created.', $this->output);
-    }
-
-    /**
-     * @covers \Hulotte\Commands\InitCommand::execute
-     * @test
-     */
-    public function executeIndexFile(): void
-    {
         $this->assertFileExists('public/index.php');
         $this->assertStringContainsString('The file "public/index.php" is created.', $this->output);
-    }
-
-    /**
-     * @covers \Hulotte\Commands\InitCommand::execute
-     * @test
-     */
-    public function executeSrcFolder(): void
-    {
         $this->assertDirectoryExists('src');
         $this->assertStringContainsString('The folder "src" is created.', $this->output);
+        $this->assertStringContainsString('Your project is initialized.', $this->output);
     }
 
     protected function setUp(): void
@@ -77,7 +51,7 @@ class InitCommandTest extends TestCase
         $application->add(new InitCommand());
 
         $commandTester = new CommandTester($application->find('init'));
-        $commandTester->execute([]);
+        $this->result = $commandTester->execute([]);
 
         $this->output = $commandTester->getDisplay();
     }

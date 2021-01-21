@@ -10,17 +10,20 @@ namespace Hulotte;
 class Module
 {
     /**
+     * The path for configuration settings
      * @var string|null
      */
-    const DEFINITIONS = null;
+    public const DEFINITIONS = null;
 
     /**
+     * The path for the migrations folder
      * @var string|null
      */
-    const MIGRATIONS = null;
+    public const MIGRATIONS = null;
 
     /**
+     * The path for seeds folder
      * @var string|null
      */
-    const SEEDS = null;
+    public const SEEDS = null;
 }

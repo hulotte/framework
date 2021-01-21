@@ -19,33 +19,24 @@ use Psr\{
 class App
 {
     /**
-     * @var ContainerInterface|null
-     */
-    private ?ContainerInterface $container;
-
-    /**
-     * @var string[]
-     */
-    private array $modules;
-
-    /**
      * App constructor
+     * @param null|ContainerInterface $container
+     * @param string[] $modules
+     * @param string[] $middlewares
      */
-    public function __construct()
-    {
-        $this->container = null;
-        $this->modules = [];
+    public function __construct(
+        private ?containerInterface $container = null,
+        private array $modules = [],
+        private array $middlewares = []
+    ) {
     }
 
     /**
-     * @param string $module
-     * @return $this
+     * @param array $module
      */
-    public function addModule(string $module): self
+    public function addModules(array $module): void
     {
-        $this->modules[] = $module;
-
-        return $this;
+        $this->modules = $module;
     }
 
     /**
@@ -89,17 +80,24 @@ class App
             $this->getContainer()->get($module);
         }
 
-        $middlewares = $this->getContainer()->get('middlewares');
         $middlewaresInstanciate = [];
 
-        if (!empty($middlewares)) {
-            foreach ($middlewares as $middleware) {
-                $middlewaresInstanciate[] = $middleware;
+        if (!empty($this->middlewares)) {
+            foreach ($this->middlewares as $middleware) {
+                $middlewaresInstanciate[] = $this->container->get($middleware);
             }
         }
 
         $dispatcher = new MiddlewareDispatcher($middlewaresInstanciate);
 
         return $dispatcher->handle($request);
+    }
+
+    /**
+     * @param string[] $middlewares
+     */
+    public function setMiddlewares(array $middlewares)
+    {
+        $this->middlewares = $middlewares;
     }
 }

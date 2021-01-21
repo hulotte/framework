@@ -15,21 +15,15 @@ use Twig\TwigFunction;
 class RouterExtension extends AbstractExtension
 {
     /**
-     * @var RouteDispatcher
-     */
-    private RouteDispatcher $router;
-
-    /**
      * RouterExtension constructor.
      * @param RouteDispatcher $router
      */
-    public function __construct(RouteDispatcher $router)
+    public function __construct(private RouteDispatcher $router)
     {
-        $this->router = $router;
     }
 
     /**
-     * @return array|TwigFunction[]
+     * @return TwigFunction[]
      */
     public function getFunctions(): array
     {
@@ -41,10 +35,10 @@ class RouterExtension extends AbstractExtension
     /**
      * @param string $path
      * @param array|null $params
-     * @return mixed
+     * @return string
      * @throws Exception
      */
-    public function pathFor(string $path, ?array $params = null)
+    public function pathFor(string $path, ?array $params = null): string
     {
         return $this->router->generateUri($path, $params);
     }
