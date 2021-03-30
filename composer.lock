@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "cdd6ade9bf3266b54547184cc5f6c538",
+    "content-hash": "02eb6b11efe48132b939fe640116b080",
     "packages": [
         {
             "name": "cakephp/core",
@@ -558,16 +558,16 @@
         },
         {
             "name": "hulotte/routing",
-            "version": "1.0.1",
+            "version": "1.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/hulotte/routing.git",
-                "reference": "b20f690cca31f2e1b7bd2e80b89c0599f0dc2c20"
+                "reference": "fc9dccc7ec9125af561c408cc26960486b95599d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/hulotte/routing/zipball/b20f690cca31f2e1b7bd2e80b89c0599f0dc2c20",
-                "reference": "b20f690cca31f2e1b7bd2e80b89c0599f0dc2c20",
+                "url": "https://api.github.com/repos/hulotte/routing/zipball/fc9dccc7ec9125af561c408cc26960486b95599d",
+                "reference": "fc9dccc7ec9125af561c408cc26960486b95599d",
                 "shasum": ""
             },
             "require": {
@@ -599,9 +599,9 @@
             "description": "Simple routing system",
             "support": {
                 "issues": "https://github.com/hulotte/routing/issues",
-                "source": "https://github.com/hulotte/routing/tree/1.0.1"
+                "source": "https://github.com/hulotte/routing/tree/1.1.0"
             },
-            "time": "2021-01-04T14:17:42+00:00"
+            "time": "2021-03-30T06:46:51+00:00"
         },
         {
             "name": "middlewares/utils",
