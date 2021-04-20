@@ -58,6 +58,7 @@ class ModuleCommand extends Command
         $this->createConfigFile();
         $this->createIndexControllerFolderAndFile();
         $this->createViewsFolderAndFile();
+        $this->createDatabaseFolders();
 
         $output->writeln($this->moduleName . ' module is created.');
 
@@ -74,6 +75,24 @@ class ModuleCommand extends Command
             $content = require __DIR__ . '/templates/config.php';
             fputs($configFile, $content);
             fclose($configFile);
+        }
+    }
+
+    /**
+     * Create folder for database migrations and seeds
+     */
+    private function createDatabaseFolders(): void
+    {
+        if (!file_exists($this->getModulePath() . '/database')) {
+            mkdir($this->getModulePath() . '/database');
+        }
+
+        if (!file_exists($this->getModulePath() . '/database/migrations')) {
+            mkdir($this->getModulePath() . '/database/migrations');
+        }
+
+        if (!file_exists($this->getModulePath() . '/database/seeds')) {
+            mkdir($this->getModulePath() . '/database/seeds');
         }
     }
 
