@@ -51,6 +51,9 @@ class ModuleCommandTest extends TestCase
         $this->assertDirectoryExists('src/' . ucfirst($this->moduleName) . '/views');
         $this->assertFileExists('src/' . ucfirst($this->moduleName) . '/views/index.twig');
         $this->assertStringContainsString(ucfirst($this->moduleName) . ' module is created.', $this->output);
+        $this->assertDirectoryExists('src/' . ucfirst($this->moduleName) . '/database');
+        $this->assertDirectoryExists('src/' . ucfirst($this->moduleName) . '/database/migrations');
+        $this->assertDirectoryExists('src/' . ucfirst($this->moduleName) . '/database/seeds');
     }
 
     protected function setUp(): void
@@ -90,6 +93,18 @@ class ModuleCommandTest extends TestCase
 
         if (file_exists('src/' . ucfirst($this->moduleName) . '/views')) {
             rmdir('src/' . ucfirst($this->moduleName) . '/views');
+        }
+
+        if (file_exists('src/' . $this->moduleName . '/database/migrations')) {
+            rmdir('src/' . $this->moduleName . '/database/migrations');
+        }
+
+        if (file_exists('src/' . $this->moduleName . '/database/seeds')) {
+            rmdir('src/' . $this->moduleName . '/database/seeds');
+        }
+
+        if (file_exists('src/' . $this->moduleName . '/database')) {
+            rmdir('src/' . $this->moduleName . '/database');
         }
 
         if (file_exists('src/' . $this->moduleName)) {
