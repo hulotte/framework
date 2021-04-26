@@ -20,8 +20,6 @@ use Psr\Container\ContainerInterface;
 class %MODULE_NAME%Module extends Module
 {
     public const DEFINITIONS = __DIR__ . '/config.php';
-    public const MIGRATIONS = __DIR__ . '/database/migrations';
-    public const SEEDS = __DIR__ . '/database/seeds';
 
     public function __construct(ContainerInterface $container, RendererInterface $renderer, RouteDispatcher $router)
     {
