@@ -1,0 +1,24 @@
+version: "3.9"
+services:
+  web:
+    build: .
+    ports:
+      - 80:80
+    volumes:
+      - ./:/app/
+      - ./.docker/debug:/tmp/debug
+    environment:
+      - PHP_DEBUGGER=xdebug
+      - PHP_IDE_CONFIG=serverName=hulotte-framework.test
+      - XDEBUG_CLIENT_HOST=host.docker.internal
+      - XDEBUG_OUTPUT_DIR="/tmp/debug"
+      - PHP_MAX_EXECUTION_TIME=300
+      - PHP_POST_MAX_SIZE=8M
+      - PHP_UPLOAD_MAX_FILESIZE=3M
+      - PHP_DISPLAY_ERRORS=1
+      - WEB_ALIAS_DOMAIN=hulotte-framework.test
+      - WEB_DOCUMENT_ROOT=/app
+      - PHP_DISMOD=ioncube
+
+volumes:
+  data:
