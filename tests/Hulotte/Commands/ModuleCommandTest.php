@@ -47,7 +47,7 @@ class ModuleCommandTest extends TestCase
         $this->assertFileExists('src/' . ucfirst($this->moduleName) . '/' . ucfirst($this->moduleName) . 'Module.php');
         $this->assertFileExists('src/' . ucfirst($this->moduleName) . '/config.php');
         $this->assertDirectoryExists('src/' . ucfirst($this->moduleName) . '/Controllers');
-        $this->assertFileExists('src/' . ucfirst($this->moduleName) . '/Controllers/indexController.php');
+        $this->assertFileExists('src/' . ucfirst($this->moduleName) . '/Controllers/IndexController.php');
         $this->assertDirectoryExists('src/' . ucfirst($this->moduleName) . '/views');
         $this->assertFileExists('src/' . ucfirst($this->moduleName) . '/views/index.twig');
         $this->assertStringContainsString(ucfirst($this->moduleName) . ' module is created.', $this->output);
@@ -95,20 +95,20 @@ class ModuleCommandTest extends TestCase
             rmdir('src/' . ucfirst($this->moduleName) . '/views');
         }
 
-        if (file_exists('src/' . $this->moduleName . '/database/migrations')) {
-            rmdir('src/' . $this->moduleName . '/database/migrations');
+        if (file_exists('src/' . ucfirst($this->moduleName) . '/database/migrations')) {
+            rmdir('src/' . ucfirst($this->moduleName) . '/database/migrations');
         }
 
-        if (file_exists('src/' . $this->moduleName . '/database/seeds')) {
-            rmdir('src/' . $this->moduleName . '/database/seeds');
+        if (file_exists('src/' . ucfirst($this->moduleName) . '/database/seeds')) {
+            rmdir('src/' . ucfirst($this->moduleName) . '/database/seeds');
         }
 
-        if (file_exists('src/' . $this->moduleName . '/database')) {
-            rmdir('src/' . $this->moduleName . '/database');
+        if (file_exists('src/' . ucfirst($this->moduleName) . '/database')) {
+            rmdir('src/' . ucfirst($this->moduleName) . '/database');
         }
 
-        if (file_exists('src/' . $this->moduleName)) {
-            rmdir('src/' . $this->moduleName);
+        if (file_exists('src/' . ucfirst($this->moduleName))) {
+            rmdir('src/' . ucfirst($this->moduleName));
         }
 
         if (file_exists('src')) {
