@@ -10,10 +10,21 @@ namespace Hulotte\Services;
 class Validator
 {
     /**
+     * @var int
+     */
+    public const ERR_EMAIL = 101;
+
+    /**
+     * @var int
+     */
+    public const ERR_REQUIRED = 100;
+
+    /**
      * Validator constructor.
      * @param array $params
+     * @param null|array $error
      */
-    public function __construct(private array $params, private bool $error = false)
+    public function __construct(private array $params, private ?array $error = null)
     {
     }
 
@@ -27,36 +38,18 @@ class Validator
         $value = $this->getValue($key);
 
         if (filter_var($value, FILTER_VALIDATE_EMAIL) === false) {
-            $this->error = true;
+            $this->error[$key] = $this::ERR_EMAIL;
         }
 
         return $this;
     }
 
     /**
-     * @return bool
+     * @return null|array
      */
-    public function isError(): bool
+    public function getError(): ?array
     {
         return $this->error;
-    }
-
-    /**
-     * Define empty keys
-     * @param string ...$keys
-     * @return $this
-     */
-    public function notEmpty(string ...$keys): self
-    {
-        foreach ($keys as $key) {
-            $value = $this->getValue($key);
-
-            if ($value === null || empty(trim($value))) {
-                $this->error = true;
-            }
-        }
-
-        return $this;
     }
 
     /**
@@ -69,8 +62,8 @@ class Validator
         foreach ($keys as $key) {
             $value = $this->getValue($key);
 
-            if ($value === null || $value === '') {
-                $this->error = true;
+            if ($value === null || trim($value) === '') {
+                $this->error[$key] = $this::ERR_REQUIRED;
             }
         }
 

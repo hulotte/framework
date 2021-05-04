@@ -14,20 +14,20 @@ use PHPUnit\Framework\TestCase;
 class ValidatorTest extends TestCase
 {
     /**
-     * @covers \Hulotte\Services\Validator:required
+     * @covers \Hulotte\Services\Validator::required
      * @test
      */
     public function requiredSuccess(): void
     {
-        $validator = new Validator(['name' => 'Billy']);
+        $validator = new Validator(['name' => 'CLEMENT']);
         $result = $validator->required('name');
 
         $this->assertInstanceOf(Validator::class, $result);
-        $this->assertFalse($result->isError());
+        $this->assertNull($result->getError());
     }
 
     /**
-     * @covers \Hulotte\Services\Validator:required
+     * @covers \Hulotte\Services\Validator::required
      * @test
      */
     public function requiredFail(): void
@@ -36,125 +36,104 @@ class ValidatorTest extends TestCase
         $result = $validator->required('name');
 
         $this->assertInstanceOf(Validator::class, $result);
-        $this->assertTrue($result->isError());
+        $this->assertSame(['name' => 100], $result->getError());
     }
 
     /**
-     * @covers \Hulotte\Services\Validator:required
+     * @covers \Hulotte\Services\Validator::required
      * @test
      */
-    public function requiredWithManyKeys(): void
+    public function requiredSuccessWithManyParams(): void
     {
-        $validator = new Validator(['name' => 'Billy', 'firstname' => 'Bob']);
+        $validator = new Validator(['name' => 'CLEMENT', 'firstname' => 'Sébastien']);
         $result = $validator->required('name', 'firstname');
 
         $this->assertInstanceOf(Validator::class, $result);
-        $this->assertFalse($result->isError());
+        $this->assertNull($result->getError());
     }
 
     /**
-     * @covers \Hulotte\Services\Validator:required
+     * @covers \Hulotte\Services\Validator::required
      * @test
      */
-    public function requiredWithManyKeysFail(): void
+    public function requiredFailWithManyParams(): void
     {
-        $validator = new Validator(['name' => 'Billy']);
+        $validator = new Validator([]);
         $result = $validator->required('name', 'firstname');
 
         $this->assertInstanceOf(Validator::class, $result);
-        $this->assertTrue($result->isError());
+        $this->assertSame(['name' => 100, 'firstname' => 100], $result->getError());
     }
 
     /**
-     * @covers \Hulotte\Services\Validator:notEmpty
+     * @covers \Hulotte\Services\Validator::required
      * @test
      */
-    public function notEmpty(): void
-    {
-        $validator = new Validator(['name' => 'Billy']);
-        $result = $validator->notEmpty('name');
-
-        $this->assertInstanceOf(Validator::class, $result);
-        $this->assertFalse($result->isError());
-    }
-
-    /**
-     * @covers \Hulotte\Services\Validator:notEmpty
-     * @test
-     */
-    public function notEmptyFail(): void
-    {
-        $validator = new Validator(['name' => '']);
-        $result = $validator->notEmpty('name');
-
-        $this->assertInstanceOf(Validator::class, $result);
-        $this->assertTrue($result->isError());
-    }
-
-    /**
-     * @covers \Hulotte\Services\Validator:notEmpty
-     * @test
-     */
-    public function notEmptySuccessWithSpace(): void
-    {
-        $validator = new Validator(['name' => ' Billy ']);
-        $result = $validator->notEmpty('name');
-
-        $this->assertInstanceOf(Validator::class, $result);
-        $this->assertFalse($result->isError());
-    }
-
-    /**
-     * @covers \Hulotte\Services\Validator:notEmpty
-     * @test
-     */
-    public function notEmptyFailWithSpace(): void
+    public function requiredFailWithEmptyValue(): void
     {
         $validator = new Validator(['name' => ' ']);
-        $result = $validator->notEmpty('name');
+        $result = $validator->required('name');
 
         $this->assertInstanceOf(Validator::class, $result);
-        $this->assertTrue($result->isError());
+        $this->assertSame(['name' => 100], $result->getError());
     }
 
     /**
-     * @covers \Hulotte\Services\Validator:notEmpty
+     * @covers \Hulotte\Services\Validator::email
      * @test
      */
-    public function notEmptySuccessWithManyKeys(): void
+    public function emailSuccess(): void
     {
-        $validator = new Validator(['name' => ' Billy ', 'firstname' => 'Bob']);
-        $result = $validator->notEmpty('name', 'firstname');
-
-        $this->assertInstanceOf(Validator::class, $result);
-        $this->assertFalse($result->isError());
-    }
-
-    /**
-     * @covers \Hulotte\Services\Validator:email
-     * @test
-     */
-    public function email(): void
-    {
-        $validator = new Validator(['email' => 'billybob@test.com']);
+        $validator = new Validator(['email' => 'monemail@test.com']);
         $result = $validator->email('email');
 
         $this->assertInstanceOf(Validator::class, $result);
-        $this->assertfalse($result->isError());
+        $this->assertNull($result->getError());
     }
 
-
-
     /**
-     * @covers \Hulotte\Services\Validator:email
+     * @covers \Hulotte\Services\Validator::email
      * @test
      */
     public function emailFail(): void
     {
-        $validator = new Validator(['email' => 'billybob']);
+        $validator = new Validator(['email' => 'monemail']);
         $result = $validator->email('email');
 
         $this->assertInstanceOf(Validator::class, $result);
-        $this->assertTrue($result->isError());
+        $this->assertSame(['email' => 101], $result->getError());
+    }
+
+    /**
+     * @covers \Hulotte\Services\Validator::email
+     * @covers \Hulotte\Services\Validator::required
+     * @test
+     */
+    public function multiConditionsSuccess(): void
+    {
+        $validator = new Validator(['email' => 'monemail@test.com', 'password' => 'jfsdfsjhdfsjhdf']);
+        $result = $validator->required('email', 'password')
+            ->email('email');
+
+        $this->assertInstanceOf(Validator::class, $result);
+        $this->assertNull($result->getError());
+    }
+
+    /**
+     * @covers \Hulotte\Services\Validator::email
+     * @covers \Hulotte\Services\Validator::required
+     * @test
+     */
+    public function multiConditionsFail(): void
+    {
+        $validator = new Validator(['email' => 'monemail@test', 'password' => '']);
+        $result = $validator->required('email', 'password')
+            ->email('email');
+
+        $this->assertInstanceOf(Validator::class, $result);
+        $this->assertSame([
+            'password' => 100,
+            'email' => 101,
+        ], $result->getError());
     }
 }
