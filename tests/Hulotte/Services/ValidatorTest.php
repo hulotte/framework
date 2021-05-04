@@ -36,7 +36,7 @@ class ValidatorTest extends TestCase
         $result = $validator->required('name');
 
         $this->assertInstanceOf(Validator::class, $result);
-        $this->assertSame(['name' => 100], $result->getError());
+        $this->assertSame(['name' => [100]], $result->getError());
     }
 
     /**
@@ -62,7 +62,7 @@ class ValidatorTest extends TestCase
         $result = $validator->required('name', 'firstname');
 
         $this->assertInstanceOf(Validator::class, $result);
-        $this->assertSame(['name' => 100, 'firstname' => 100], $result->getError());
+        $this->assertSame(['name' => [100], 'firstname' => [100]], $result->getError());
     }
 
     /**
@@ -75,7 +75,7 @@ class ValidatorTest extends TestCase
         $result = $validator->required('name');
 
         $this->assertInstanceOf(Validator::class, $result);
-        $this->assertSame(['name' => 100], $result->getError());
+        $this->assertSame(['name' => [100]], $result->getError());
     }
 
     /**
@@ -101,7 +101,7 @@ class ValidatorTest extends TestCase
         $result = $validator->email('email');
 
         $this->assertInstanceOf(Validator::class, $result);
-        $this->assertSame(['email' => 101], $result->getError());
+        $this->assertSame(['email' => [101]], $result->getError());
     }
 
     /**
@@ -126,14 +126,16 @@ class ValidatorTest extends TestCase
      */
     public function multiConditionsFail(): void
     {
-        $validator = new Validator(['email' => 'monemail@test', 'password' => '']);
+        $validator = new Validator(['email' => '', 'password' => '']);
         $result = $validator->required('email', 'password')
             ->email('email');
 
         $this->assertInstanceOf(Validator::class, $result);
         $this->assertSame([
-            'password' => 100,
-            'email' => 101,
+            'email' => [
+                100, 101
+            ],
+            'password' => [100],
         ], $result->getError());
     }
 }

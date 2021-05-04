@@ -38,7 +38,7 @@ class Validator
         $value = $this->getValue($key);
 
         if (filter_var($value, FILTER_VALIDATE_EMAIL) === false) {
-            $this->error[$key] = $this::ERR_EMAIL;
+            $this->error[$key][] = $this::ERR_EMAIL;
         }
 
         return $this;
@@ -63,7 +63,7 @@ class Validator
             $value = $this->getValue($key);
 
             if ($value === null || trim($value) === '') {
-                $this->error[$key] = $this::ERR_REQUIRED;
+                $this->error[$key][] = $this::ERR_REQUIRED;
             }
         }
 
