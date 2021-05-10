@@ -18,10 +18,9 @@ interface SessionInterface
     /**
      * Get an information on session
      * @param string $key
-     * @param mixed|null $default
      * @return mixed
      */
-    public function get(string $key, mixed $default = null):mixed;
+    public function get(string $key):mixed;
 
     /**
      * Add an information on session

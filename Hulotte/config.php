@@ -1,20 +1,21 @@
 <?php
 
-use Hulotte\{
-    Commands\InitCommand,
+use Hulotte\{Commands\InitCommand,
     Commands\ModuleCommand,
     Middlewares\RoutingMiddleware,
     Renderer\RendererInterface,
     Renderer\Twig\TwigRendererFactory,
     Routing\RouteDispatcher,
-    TwigExtensions\RouterExtension
-};
+    Session\PhpSession,
+    Session\SessionInterface,
+    TwigExtensions\RouterExtension};
 use Psr\Container\ContainerInterface;
+use function DI\autowire;
 use function DI\get;
 
 return [
-    \PDO::class => function (ContainerInterface $c) {
-        return new \PDO(
+    PDO::class => function (ContainerInterface $c) {
+        return new PDO(
             'mysql:host=' . $c->get('database.host') . ';dbname=' . $c->get('database.name') . ';charset=utf8',
             $c->get('database.username'),
             $c->get('database.password'),
@@ -30,6 +31,7 @@ return [
     RoutingMiddleware::class => function (ContainerInterface $container) {
         return new RoutingMiddleware($container->get(RouteDispatcher::class));
     },
+    SessionInterface::class => autowire(PhpSession::class),
     'commands' => [
         InitCommand::class,
         ModuleCommand::class
